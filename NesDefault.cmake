@@ -1,0 +1,5 @@
+function (nes_default target)
+set_target_properties(${target} PROPERTIES SUFFIX ".nes")
+target_compile_options(${target} PRIVATE -g)
+target_link_options(${target} PRIVATE -C ${PROJECT_SOURCE_DIR}/${target}.cfg -m ${target}.map.txt -Ln ${target}.labels.txt --dbgfile ${target}.dbg)
+endfunction()
